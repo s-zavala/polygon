@@ -35,23 +35,19 @@ class Rectangle:
         return amt
 
     def __str__(self):
-        return f"Rectangle: width={self.width}, height={self.height}"
+        return f"Rectangle(width={self.width}, height={self.height})"
 
 
 class Square(Rectangle):
     def __init__(self, side):
         Rectangle.__init__(self, width=side, height=side)
 
-    def set_height(self, new_height):
-        Rectangle.set_height(self, new_height)
-        Rectangle.set_width(self, new_height)
-
-    def set_width(self, new_width):
-        Rectangle.set_width(self, new_width)
-        Rectangle.set_height(self, new_width)
+    def set_side(self, new_side):
+        Rectangle.set_width(self, new_side)
+        Rectangle.set_height(self, new_side)
 
     def __str__(self):
-        return f"Square: side={self.width}"
+        return f"Square(side={self.width})"
 
 
 if __name__ == '__main__':
