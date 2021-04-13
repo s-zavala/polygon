@@ -24,9 +24,13 @@ class Rectangle:
         return (width ** 2 + height ** 2) ** 0.5
     
     def get_picture(self):
-        return ('\*' * self.width + '\n') * self.height
+        if self.height < 50 and self.width < 50:
+            return ('\*' * self.width + '\n') * self.height
+        else:
+            return "Too big for picture."
 
     def get_amount_inside(self, other_shape):
+        times_into_width = 
         pass
 
     def __str__(self):
