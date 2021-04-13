@@ -30,8 +30,9 @@ class Rectangle:
             return "Too big for picture."
 
     def get_amount_inside(self, other_shape):
-        times_into_width = 
-        pass
+        times_into_width = self.width // other_shape.width
+        times_into_height = self.height // other_shape.height
+        return times_into_height * times_into_width
 
     def __str__(self):
         return f"Rectangle: width={self.width}, height={self.height}"
