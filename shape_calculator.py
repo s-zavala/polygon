@@ -7,47 +7,69 @@ class Rectangle:
     def __init__(self, width, height):
         self.width = width
         self.height = height
-    
+
     def set_width(self, new_width):
-        pass
-    
+        self.width = new_width
+
     def set_height(self, new_height):
-        pass
+        self.height = new_height
 
     def get_area(self):
         return self.width * self.height
-    
+
     def get_perimeter(self):
         return 2 * self.width + 2 * self.height
 
     def get_diagonal(self):
-        return (width ** 2 + height ** 2) ** 0.5
-    
+        return (self.width ** 2 + self.height ** 2) ** 0.5
+
     def get_picture(self):
         if self.height < 50 and self.width < 50:
-            return ('\*' * self.width + '\n') * self.height
+            pic_width = '*' * self.width + '\n'
+            return pic_width * self.height
         else:
             return "Too big for picture."
 
     def get_amount_inside(self, other_shape):
-        times_into_width = self.width // other_shape.width
-        times_into_height = self.height // other_shape.height
-        return times_into_height * times_into_width
+        amt = self.get_area() // other_shape.get_area()
+        return amt
 
     def __str__(self):
         return f"Rectangle: width={self.width}, height={self.height}"
 
+
 class Square(Rectangle):
     def __init__(self, side):
         Rectangle.__init__(self, width=side, height=side)
-    
+
     def set_height(self, new_height):
-        Rectangle.set_height(new_height)
-        Rectangle.set_width(new_height)
-    
+        Rectangle.set_height(self, new_height)
+        Rectangle.set_width(self, new_height)
+
     def set_width(self, new_width):
-        Rectangle.set_width(new_width)
-        Rectangle.set_height(new_width)
+        Rectangle.set_width(self, new_width)
+        Rectangle.set_height(self, new_width)
 
     def __str__(self):
         return f"Square: side={self.width}"
+
+
+if __name__ == '__main__':
+    t1 = Rectangle(15, 20)
+    t1.set_width(16)
+    t1.set_height(21)
+    a = t1.get_area()
+    b = t1.get_perimeter()
+    c = t1.get_diagonal()
+    d = t1.get_picture()
+    t2 = Rectangle(3, 4)
+    e = t1.get_amount_inside(t2)
+    print(t1)
+    print(t2)
+    t3 = Square(3)
+    t3.set_height(4)
+    t3.set_width(5)
+    print(t3)
+    f = t1.get_amount_inside(t3)
+    g = t2.get_amount_inside(t3)
+    print('spam')
