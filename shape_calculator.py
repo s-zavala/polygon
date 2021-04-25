@@ -1,6 +1,5 @@
 """
 Shape Calculator by Sofia Zavala
-04/13/2021
 """
 
 
